@@ -116,26 +116,22 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         showLoading(true);
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Database.addStudent(new Student(mAuth.getCurrentUser().getUid(), email, username))
-                                    .addOnSuccessListener(v -> {
-                                        showLoading(false);
-                                        Toast.makeText(SignUp.this, "הרשמה הצליחה!", Toast.LENGTH_SHORT).show();
-                                        finish();
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Log.d("SignUpError", e.getLocalizedMessage());
-                                        showLoading(false);
-                                    });
-                        } else {
-                            showLoading(false);
-                            Log.d("SignUpErrorr", task.getException().getMessage());
-                            Toast.makeText(SignUp.this, "שגיאה: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
+                .addOnSuccessListener(v -> {
+                    Database.addStudent(new Student(mAuth.getCurrentUser().getUid(), email, username))
+                            .addOnSuccessListener(vx -> {
+                                showLoading(false);
+                                Toast.makeText(SignUp.this, "הרשמה הצליחה!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.d("SignUpError", e.getLocalizedMessage());
+                                showLoading(false);
+                            });
+                })
+                .addOnFailureListener(e -> {
+                    showLoading(false);
+                    Log.d("SignUpErrorr", e.getMessage());
+                    Toast.makeText(SignUp.this, "שגיאה: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }
 

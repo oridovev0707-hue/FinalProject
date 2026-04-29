@@ -4,7 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/home_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".HomeActivity">
+    <TextView
+        android:id="@+id/tvHomeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="הפרויקט שלי"
+        android:textColor="#004D40"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@drawable/rounded_white_bg"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:text="שלום קוראים לי אורי והאפליקציה שלי נועדה כדי לחסוך לכם זמן וכאב ראש ולהנגיש לכם את כל מה שאתם צריכים בנושאי העבודות והמבחנים שלכם.\n\nבאפליקציה תוכלו לכתוב תזכורות למבחנים קרובים, לנהל מטלות ולעקוב אחר ההתקדמות שלכם בצורה מסודרת ונוחה."
+            android:textColor="#333333"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buLogIn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00796B"
+            android:text="התחבר"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/buSignUp"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="הירשם"
+            android:textColor="#00796B"
+            android:textSize="18sp" />
+    </LinearLayout>
 </LinearLayout>
